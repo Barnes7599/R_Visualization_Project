@@ -1,9 +1,5 @@
-#recreating graph from the economisy located at https://www.economist.com/graphic-detail/2011/12/02/corrosive-corruption
+#recreating graph from the economist located at https://www.economist.com/graphic-detail/2011/12/02/corrosive-corruption
 
-#import the ggplot library using tidyverse package which contains ggplot2
-#if you haven't installed the tidyverse package, run the following code without the #
-#install.packages("tidyverse")
-#to use the library
 library(tidyverse)
 library(ggthemes)
 
@@ -15,7 +11,7 @@ ggplot(economist, aes(CPI, HDI, color = Region)) +
     geom_point(shape = 1, size = 4) + 
     # since color is by a categorical variable you will need to group so that the trendline goes between all data sets and not through each categorical variable
     #method "lm" is linear regression
-    # formula y ~ log(x) plots the log of variable x
+    # formula y ~ log(x) plots the log of variable x (curved line)
     geom_smooth(aes(group = 1), method = "lm", formula = y ~ log(x), se = FALSE, color = "red", size = .5) +
     # since we want to label each variable we will have to use the aes() function
     geom_text(aes(label = Country), color = "gray20", data = subset(economist, Country %in% pointsToLabel), check_overlap = TRUE) +

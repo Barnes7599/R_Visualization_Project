@@ -7,6 +7,11 @@ library(ggthemes)
 economist <- read_csv("Economist_Assignment_Data.csv")
 head(economist)
 
+# need to add labels via subset 
+pointsToLabel <- c("Russia", "Venezuela", "Iraq", "Myanmar", "Sudan", "Afghanistan", "Congo", "Greece", "Argentina", "Brazil",
+                   "India", "Italy", "China", "South Africa", "Spane","Botswana", "Cape Verde", "Bhutan", "Rwanda", "France",
+                   "United States", "Germany", "Britain", "Barbados", "Norway", "Japan", "New Zealand", "Singapore")  
+
 ggplot(economist, aes(CPI, HDI, color = Region)) +
     geom_point(shape = 1, size = 4) + 
     # since color is by a categorical variable you will need to group so that the trendline goes between all data sets and not through each categorical variable
@@ -21,15 +26,6 @@ ggplot(economist, aes(CPI, HDI, color = Region)) +
     scale_y_continuous(limits = c(.2,1.0)) +
     scale_x_continuous(limits = c(1,10), breaks = 1:10)
     
-    
-# need to add labels via subset 
-pointsToLabel <- c("Russia", "Venezuela", "Iraq", "Myanmar", "Sudan",
-                   "Afghanistan", "Congo", "Greece", "Argentina", "Brazil",
-                   "India", "Italy", "China", "South Africa", "Spane",
-                   "Botswana", "Cape Verde", "Bhutan", "Rwanda", "France",
-                   "United States", "Germany", "Britain", "Barbados", "Norway", "Japan",
-                   "New Zealand", "Singapore")
-   
-     
+
 
 
